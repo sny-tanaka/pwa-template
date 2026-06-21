@@ -8,9 +8,16 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
-  { ignores: ['node_modules/', 'docs/', 'dist/', 'coverage/'] },
+  { ignores: ['node_modules/', 'docs/', 'dist/', 'coverage/', 'storybook-static/'] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
+  // Node.js スクリプト用（scripts/*.mjs 等）
+  {
+    files: ['scripts/**/*.mjs', '*.config.{js,mjs,cjs}'],
+    languageOptions: {
+      globals: { ...globals.node },
+    },
+  },
   {
     files: ['**/*.{ts,tsx}'],
     languageOptions: {

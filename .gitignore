@@ -16,6 +16,9 @@
 # 注意: docs/ は GitHub Pages の公開先なので gitignore しない
 # (commit して push することで公開される)
 
+# Storybook ビルド出力（コミット対象外）
+/storybook-static/
+
 # misc
 .DS_Store
 .env.local
